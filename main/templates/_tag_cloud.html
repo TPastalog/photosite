@@ -1,0 +1,12 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="center-block"><canvas id="tagcanvas1" width="300" height="300"></canvas></div>
+        </div>
+        <div id="ptTags">
+            {% for t in tags %}
+                <a href="/Tags/{{ t }}/">{{ t }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>

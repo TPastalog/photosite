@@ -1,0 +1,29 @@
+{% extends "__l_single_col.html" %}
+
+{% block main_col %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <form action="/edit_album/{{ album_id }}/" method="post">{% csrf_token %}
+                <label for="title">Измените название альбома:</label><br>
+                <div class="controls controls-row">
+                    <input type="text" name="title" id="title" maxlength="250" class="span5" value="{{ old_title }}"><br><br>
+                </div>
+                    <label for="text">Отредактируйте его описание:</label><br>
+                <div class="controls controls-row">
+                    <p><textarea name="text" id="text" rows="10" class="span5">{{ old_text }}</textarea></p>
+                </div>
+                <input class="btn btn-success" type="submit" value="Сохранить">
+            </form>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-lg-4">
+            <a href="javascript:history.back()" class="btn btn-primary">Спасибо, не сейчас</a>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

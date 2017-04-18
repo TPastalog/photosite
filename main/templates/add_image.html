@@ -1,0 +1,25 @@
+{% extends "__l_single_col.html" %}
+
+{% block main_col %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <form enctype="multipart/form-data" action="/add_image/{{ album_id }}/" method="post">
+                {% csrf_token %}
+                    {{ form }}
+                <br><br>
+                <input class="btn btn-success" type="submit" value="Сохранить">
+            </form>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-lg-4">
+            <a href="/{{ album_id }}/" class="btn btn-primary">Посмотреть альбом</a>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

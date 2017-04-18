@@ -1,0 +1,30 @@
+{% extends "__l_single_col.html" %}
+
+{% block main_col %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="/{{MEDIA_URL}}{{ image.image.url }}" alt="" class="img-thumbnail">
+        </div>
+        <div class="col-lg-4">
+            <form action="/edit_image/{{ album_id }}/{{ photo_id }}/" method="post">{% csrf_token %}
+                <label for="title">Измените название вашей фотографии:</label><br>
+                <input type="text" name="title" id="title" maxlength="250" class="span5" value="{{ old_title }}"><br><br>
+                <label for="text">Отредактируйте его описание:</label><br>
+                <p><textarea name="text" id="text" rows="10" class="span5">{{ old_text }}</textarea></p>
+                <label for="tag">И ещё можете изменить тэг:</label><br>
+                <input type="text" name="tag" id="tag" maxlength="20" class="span5" value="{{ old_tag }}"><br><br>
+                <input class="btn btn-success" type="submit" value="Сохранить">
+            </form>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-lg-4">
+            <a href="javascript:history.back()" class="btn btn-primary">Вернуться в альбом</a>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

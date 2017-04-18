@@ -1,0 +1,29 @@
+{% extends "__l_single_col.html" %}
+
+{% block main_col %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <form action="/add_album/" method="post" title="a">{% csrf_token %}
+                <label for="title">Дайте название вашему альбому:</label><br>
+                <div class="controls controls-row">
+                    <input type="text" name="title" id="title" maxlength="250" class="span5"><br><br>
+                </div>
+                    <label for="text">И опишите его:</label><br>
+                <div class="controls controls-row">
+                    <p><textarea name="text" id="text" rows="10" class="span5"></textarea></p>
+                </div>
+                <input class="btn btn-success" type="submit" value="Сохранить">
+            </form>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-lg-4">
+            <a href="javascript:history.back()" class="btn btn-primary">Спасибо, не сейчас</a>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

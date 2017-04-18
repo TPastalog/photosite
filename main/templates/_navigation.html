@@ -1,0 +1,9 @@
+<div class="container">
+	<a  href="/"  class="navbar-left"><button class="btn navbar-brand" data-toggle="tooltip" data-placement="bottom" title="На главную страницу"><span class="glyphicon glyphicon-camera"> Фотосайт</span></button></a>&nbsp
+    <a href="javascript:history.back()"><button class="btn btn-success btn-lg" data-toggle="tooltip" data-placement="bottom" title="Вернуться"><span class="glyphicon glyphicon-chevron-left"></span></button></a>
+    {% if username %}
+        <a href="/logout/" class="navbar-right "><button class="btn navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Выйти с сайта"><span class="glyphicon glyphicon-log-out"> Выход</span></button></a>
+    {% else %}
+        <a href="/login/" class="navbar-right "><button class="btn navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Войти на сайт">Вход <span class="glyphicon glyphicon-log-in"></span></button></a>
+    {% endif %}
+</div>

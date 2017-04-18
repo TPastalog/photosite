@@ -1,0 +1,35 @@
+<div class="jumbotron">
+    {% if username %}
+        <p><a href="/add_image/{{ album.id }}" class="btn btn-default btn-xs">Добавить фотографию</a></p>
+    {% endif %}
+  <div class="container">
+    <h2>
+        {{ album.title }}
+            {% if username %}
+                <a href="/edit_album/{{ album.id }}/" class="btn btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="/delete/{{ album.id }}/" class="btn btn-xs text-danger"><span class="glyphicon glyphicon-remove-circle"></span></a>
+            {% endif %}
+    </h2>
+    {{ album.text }}
+	<div class="row">
+        {% for im in pages %}
+            <div class="col-md-4">
+                <h5>
+                    <a href="/{{ album.id }}/{{ im.id }}/">{{ im.title }}</a>
+                    {% if username %}
+                        <a href="/edit_image/{{ album.id }}/{{ im.id }}/" class="btn btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="/delete/{{ album.id }}/{{ im.id }}/" class="btn btn-xs text-danger"><span class="glyphicon glyphicon-remove-circle"></span></a>
+                    {% endif %}
+                </h5>
+                <a href="/{{ album.id }}/{{ im.id }}/" ><img src="/{{MEDIA_URL}}{{ im.image.url }}" alt="" class="img-thumbnail"></a>
+            </div>
+        {% endfor %}
+	</div>
+    {% block paginator %}
+
+        {% include "_pag_2.html" %}
+        {% include "_pag_1.html" %}
+
+    {% endblock %}
+  </div>
+</div>

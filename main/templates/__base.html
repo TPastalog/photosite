@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+{% include "_head.html" %}
+  <body>
+	<header class="navbar navbar-fixed-top navbar-inverse">
+		{% include "_navigation.html" %}
+	</header>
+	<div id="main" role="main">
+		<div class="container">
+			{% block content %} {% endblock %}
+		</div>
+	</div>
+	<footer>
+		<p class="navbar-fixed-bottom">&copy Teftel Pastalog 2017</p>
+	</footer>
+{% include "_js.html" %}
+	</body>
+</html>

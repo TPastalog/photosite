@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <div class="container">
+    <h2>
+        Подборка фотографий с тэгом &quot;{{ tag }}&quot;
+    </h2>
+	<div class="row">
+        {% for im in pages %}
+            <div class="col-md-4">
+                <h5>
+                    <a href="/Tag/{{ im.id }}/">{{ im.title }}</a>
+                </h5>
+                <a href="/Tag/{{ im.id }}/" ><img src="/{{MEDIA_URL}}{{ im.image.url }}" alt="" class="img-thumbnail"></a>
+            </div>
+        {% endfor %}
+	</div>
+    {% block paginator %}
+
+        {% include "_pag_1.html" %}
+
+    {% endblock %}
+  </div>
+</div>

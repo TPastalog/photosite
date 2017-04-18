@@ -1,0 +1,35 @@
+﻿<div class="jumbotron">
+    {% if username %}
+        <p><a href="/add_album/" class="btn btn-default btn-xs">Добавить альбом</a></p>
+    {% endif %}
+    {% include "_hello.html" %}
+  <div class="container">
+	<div class="row">
+        {% for album in pages %}
+	        <div class="col-md-4">
+                <h5>
+                    <a href="/{{ album.id }}/">{{ album.title }}</a>
+                    {% if username %}
+                        <a href="/edit_album/{{ album.id }}/" class="btn btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="/delete/{{ album.id }}/" class="btn btn-xs text-danger"><span class="glyphicon glyphicon-remove-circle"></span></a>
+                    {% endif %}
+                </h5>
+                {% for image in images %}
+                    {% if image.album_id == album.id %}
+                        {% for im, i in list_i %}
+                            {% if im == image.id %}
+                                <a href="/{{ album.id }}/" id="layer{{ i }}"><img src="/{{MEDIA_URL}}{{ image.image.url }}" alt="" width="70%" class="img-thumbnail"></a>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+	</div>
+    {% block paginator %}
+
+        {% include "_pag_1.html" %}
+
+    {% endblock %}
+  </div>
+</div>

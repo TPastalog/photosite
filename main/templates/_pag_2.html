@@ -1,0 +1,12 @@
+    <ul class="pager">
+        {% if pages.has_previous %}
+            <li><a href="{{ prev }}page/{{ pages.previous_page_number }}/">Предыдущая</a></li>
+        {% else %}
+            <li class="disabled"><a href="#">Предыдущая</a></li>
+        {% endif %}
+        {% if pages.has_next %}
+            <li><a href="{{ prev }}page/{{ pages.next_page_number }}/">Следующая</a></li>
+        {% else %}
+            <li class="disabled"><a href="#">Следующая</a></li>
+        {% endif %}
+    </ul>

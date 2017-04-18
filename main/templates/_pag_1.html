@@ -1,0 +1,23 @@
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="pagination center">
+                {% if pages.has_previous %}
+                    <li class="arrow"><a href="{{ prev }}page/{{ pages.previous_page_number }}/">&laquo;</a></li>
+                {% else %}
+                    <li class="arrow disabled"><a href="#">&laquo;</a></li>
+                {% endif %}
+				{% for page in pages.paginator.page_range %}
+					{% if pages.number == page %}
+						<li class="active"><a href="{{ prev }}page/{{ page }}/">{{ page }}</a></li>
+					{% else %}
+						<li><a href="{{ prev }}page/{{ page }}/">{{ page }}</a></li>
+					{% endif %}
+				{% endfor %}
+                {% if pages.has_next %}
+                    <li class="arrow"><a href="{{ prev }}page/{{ pages.next_page_number }}/">&raquo;</a></li>
+                {% else %}
+                    <li class="arrow disabled"><a href="#">&raquo;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
